@@ -5,13 +5,15 @@ import { CreateEmployeeComponent } from './create-employee/create-employee.compo
 import { ListEmployeeComponent } from './list-employee/list-employee.component';
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { SharedModule } from 'src/shared/shared/shared.module';
-
+import { CustonPipePipe} from 'src/Pipes/custon-pipe.pipe';
+import { CoreModuleModule } from '../core-module/core-module.module';
 // Feature module which holds all eployee related feature
 
 @NgModule({
   declarations: [
     CreateEmployeeComponent,
-    ListEmployeeComponent
+    ListEmployeeComponent,
+    CustonPipePipe
   ],
   imports: [
 
@@ -19,9 +21,10 @@ import { SharedModule } from 'src/shared/shared/shared.module';
     // CommonModule,
     // // for form  usage
     // ReactiveFormsModule,
-
     EmployeeRoutingModule,
-    SharedModule
+    SharedModule,
+    CoreModuleModule
+    
   ],
 
   // here we are exporting listemployeecomponent because if we want this to reuse in home page. But home is registered in root module. 
@@ -29,7 +32,7 @@ import { SharedModule } from 'src/shared/shared/shared.module';
   // home page. We can also export other module and services
   exports: [ListEmployeeComponent,
             ReactiveFormsModule,
-    SharedModule
+            SharedModule
   ]
 })
 export class EmployeeModule { }

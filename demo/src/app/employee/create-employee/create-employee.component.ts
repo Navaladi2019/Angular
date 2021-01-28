@@ -8,6 +8,7 @@ import { IEmployee } from '../IEmployee';
 import { ISkill } from '../ISkill';
 import { strict } from 'assert';
 import { Router } from '@angular/router';
+import { TextService } from 'src/app/text.service';
 @Component({
   selector: 'app-create-employee',
   templateUrl: './create-employee.component.html',
@@ -66,9 +67,13 @@ export class CreateEmployeeComponent implements OnInit {
 
 
   constructor(private fb: FormBuilder, private route: ActivatedRoute,
-    private employeeService: EmployeeService, private router: Router) { }
+    private employeeService: EmployeeService, private router: Router,public Text:TextService) {
+
+      console.log(Text.guild);
+     }
 
   ngOnInit(): void {
+    this.employeeService.getEmployees().subscribe();
     this.IsEditForm = false;
     this.FormCreation();
     this.ValidationsObservable();

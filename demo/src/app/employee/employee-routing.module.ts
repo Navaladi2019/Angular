@@ -10,13 +10,13 @@ import { ListEmployeeComponent } from './list-employee/list-employee.component';
 // The module should not be referenced in any other module.If it is referenced,
 //  the module loader will eagerly load it instead of lazily loading it.
 const routes: Routes = [
-   {path:"employees", children:[
+  // {path:"employees", children:[
 
     // since we are moving it to the children of parent all the child route shoul have the prefix of employees.
        { path: "", component: ListEmployeeComponent },
        { path: "Create", component: CreateEmployeeComponent },
        { path: 'edit/:id', component: CreateEmployeeComponent },
-]}
+//]}
  
     
 ];

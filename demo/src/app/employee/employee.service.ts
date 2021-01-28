@@ -1,17 +1,25 @@
 import { Injectable } from '@angular/core';
 import { IEmployee } from './IEmployee';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-
+import { TextService} from '../text.service'
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+
 
 @Injectable()
 export class EmployeeService {
     baseUrl = 'http://localhost:3000/employees';
+    count:number=0;
     constructor(private httpClient: HttpClient) {
+       ;
+    }
+
+     increa(){
+         this.count = this.count + 1;
     }
 
     getEmployees(): Observable<IEmployee[]> {
+      
         return this.httpClient.get<IEmployee[]>(this.baseUrl)
             .pipe(catchError(this.handleError));
     }

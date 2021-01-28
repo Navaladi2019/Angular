@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HighlightDirective } from 'src/Directive/highlight.directive';
+import { CoreModuleModule } from './core-module/core-module.module';
+//import { CustonPipePipe } from '../Pipes/custon-pipe.pipe';
 
 //import { EmployeeModule } from './employee/employee.module';
 
@@ -24,11 +26,13 @@ import { HighlightDirective } from 'src/Directive/highlight.directive';
     AppComponent,
     HomeComponent,
     PageNotFoundComponent,
-    HighlightDirective
+    HighlightDirective,
+   // CustonPipePipe
   ],
   imports: [
+    CoreModuleModule.forRoot(),
     BrowserModule,
-
+    
     
 
    
@@ -41,9 +45,11 @@ import { HighlightDirective } from 'src/Directive/highlight.directive';
  //   EmployeeModule,
 
     //if AppRoutingModule is imported then only we can use router outlet in appcomponenet.html
-    AppRoutingModule
+    AppRoutingModule,
+
+
   ],
-  providers: [EmployeeService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -11,7 +11,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let employee of employees">
-                <td>{{ employee.fullName }}</td>
+                <td>{{ employee.fullName | custonPipe }}</td>
                 <td>{{ employee.email }}</td>
                 <td>{{ employee.phone }}</td>
                 <td>{{ employee.contactPreference }}</td>
